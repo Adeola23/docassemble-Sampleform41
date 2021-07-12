@@ -1,0 +1,210 @@
+---
+metadata:
+  title: |
+    Notice of Election to Redeem Life Interest
+    In the High Court of Delta State
+    Probate Registry
+  short title: |
+    Form 41
+  description: |
+    A Form 41 interview
+  authors:
+    - name: Adeola
+      organization: Authority wit.
+  revision_date: 2021-07-12
+
+---
+question: |
+  Enter Suit Number?
+fields:
+  no label: suit_number
+---
+question: |
+  Name of the deceased?
+fields:
+  Full Name: sixth_person
+---
+question: |
+  What date was the contract signed?
+fields:
+- Day: day_of_contract
+  datatype: range
+  min: 1
+  max: 31
+- Year: year_of_contract
+  datatype: integer
+- Month: month_of_contract
+  choices:
+    - January
+    - February 
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+---
+question: |
+  What date did the person die?
+fields:
+- Day: day_of_death
+  datatype: range
+  min: 1
+  max: 31
+- Year: year_of_death
+  datatype: integer
+- Month: month_of_death
+  choices:
+    - January
+    - February 
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+---
+question: |
+  Wholly intestate leaving his/her?
+field: wife_husband
+buttons:
+  - Wife
+  - Husband
+---
+question: |
+  Did the deceased leave anyone else behind?
+fields:
+  no label: someone_left
+  datatype: yesnoradio
+---
+show if:
+  someone_left == True
+question: |
+  Who:
+fields:
+  Who: whoelse  
+---
+question: |
+  Lawful issue of the said?
+fields:
+  Full Name: person
+---
+question: |
+  Letters of the administration of the said ?
+fields:
+  Full Name: other_person
+---
+question: |
+  Granted to who?
+fields:
+  Full Name: third_person
+---
+question: |
+  And who else was it granted to?
+fields:
+  Full Name: third_person_granted
+---
+question: |
+  It was granted at what date at the probate registry?
+fields:
+- Day: probate_day
+  datatype: range
+  min: 1
+  max: 31
+- Year: probate_year
+  datatype: integer
+- Month: probate_month
+  choices:
+    - January
+    - February 
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+---
+question: |
+  Who ceased to be a personal representative?
+fields:
+  Full Name: fourth_person
+---
+question: |
+ Why did ${ fourth_person } cease to be personal representative?
+fields:
+  Reason: ceased_reason
+  datatype: area
+---
+question: |
+  Who gave notice to redeem the life interest?
+fields:
+  Full Name: fifth_person
+---
+question: |
+  What amount of ${ sixth_person } capital is retained?
+fields:
+  Value: retaining_amount
+  datatype: currency
+  min: 0
+  currency symbol: ₦
+---
+question: |
+  What is the cost of transaction?
+fields:
+  Value: cost_of_transaction
+  datatype: currency
+  min: 0
+  currency symbol: ₦
+---
+question: |
+  What is the date of transaction?
+fields:
+- Day: day_of_transaction
+  datatype: range
+  min: 1
+  max: 31
+- Year: year_of_transaction
+  datatype: integer
+- Month: month_of_transaction
+  choices:
+    - January
+    - February 
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+---
+
+
+
+mandatory: true
+question: |
+  Here is your document.
+subquestion: |
+  Does it meet your approval?
+yesno: user_approves
+attachment:
+  name: Your letter
+  filename: letter
+  docx template file: FORM_41_DELTA_2.2.docx
+  valid formats:
+    - pdf
+    - docx
